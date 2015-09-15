@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Life Fit</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_caminar">Caminar</string>
+    <string name="title_activity_correr">Correr</string>
+    <string name="title_activity_bicicleta">Bicicleta</string>
+</resources>
