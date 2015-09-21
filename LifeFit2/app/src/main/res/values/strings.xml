@@ -6,4 +6,13 @@
     <string name="title_activity_caminar">Caminar</string>
     <string name="title_activity_correr">Correr</string>
     <string name="title_activity_bicicleta">Bicicleta</string>
+
+    <string-array name="menu_drawer" >
+        <item>Caminar</item>
+        <item>Correr</item>
+        <item>Bicicleta</item>
+    </string-array>
+
+    <string name="drawer_open"></string>
+    <string name="drawe_close"></string>
 </resources>
