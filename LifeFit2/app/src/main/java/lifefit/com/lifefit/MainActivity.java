@@ -1,6 +1,8 @@
 package lifefit.com.lifefit;
 
 
+import android.app.ActionBar;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ListView listView;
     private  String[] menu_drawer;
     private Intent intent;
+    private android.support.v7.app.ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         listView = (ListView)findViewById(R.id.left_drawer_list);
         listView.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, menu_drawer));
         listView.setOnItemClickListener(this);
+        actionBar = getSupportActionBar();
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override
@@ -39,7 +46,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
