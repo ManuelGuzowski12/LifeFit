@@ -3,4 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context="lifefit.com.lifefit.Caminar">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/Menu1" android:title="Día" android:orderInCategory="1" app:showAsAction="always">
+        <menu>
+
+        </menu>
+    </item>
+    <item android:id="@+id/Menu2" android:title="Semana" android:orderInCategory="2" app:showAsAction="always">
+        <menu>
+
+        </menu>
+    </item>
+    <item android:id="@+id/Menu3" android:title="Mes" android:orderInCategory="3" app:showAsAction="always">
+        <menu>
+
+        </menu>
+    </item>
 </menu>
