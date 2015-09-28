@@ -28,15 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/status_bar_margin_top">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Lifit UTP"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/md_text" />
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -45,6 +36,21 @@
             android:elevation="4dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ToolbarTheme" />
+
+        <ImageView
+            android:layout_width="352dp"
+            android:layout_height="352dp"
+            android:id="@+id/log"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_main" />
+
+        <TextView
+            android:layout_width="46dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal|top" />
 
     </FrameLayout>
 
