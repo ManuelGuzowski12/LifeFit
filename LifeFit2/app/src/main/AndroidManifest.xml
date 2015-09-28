@@ -18,15 +18,23 @@
         </activity>
         <activity
             android:name=".Caminar"
-            android:label="@string/title_activity_caminar" >
+            android:label="@string/title_activity_caminar"
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".Correr"
-            android:label="@string/title_activity_correr" >
+            android:label="@string/title_activity_correr"
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".Bicicleta"
-            android:label="@string/title_activity_bicicleta" >
+            android:label="@string/title_activity_bicicleta"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
         </activity>
     </application>
 

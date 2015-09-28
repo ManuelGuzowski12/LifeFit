@@ -1,36 +1,47 @@
 package lifefit.com.lifefit;
 
 
-import android.app.ActionBar;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.content.Intent;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity {
+
     private DrawerLayout drawerLayout;
-    private ListView listView;
-    private  String[] menu_drawer;
+    private Toolbar toolbar;
+    private ActionBar actionBar;
+    private TextView textView;
     private Intent intent;
-    private android.support.v7.app.ActionBar actionBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        menu_drawer = getResources().getStringArray(R.array.menu_drawer);
-        listView = (ListView)findViewById(R.id.left_drawer_list);
-        listView.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, menu_drawer));
-        listView.setOnItemClickListener(this);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.navigation_drawer_layout);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        if (navigationView != null) {
+            setupNavigationDrawerContent(navigationView);
+        }
+
+        setupNavigationDrawerContent(navigationView);
 
     }
 
@@ -43,38 +54,58 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
-            default:
-                return super.onOptionsItemSelected(item);
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        displayView(position);
+    private void setupNavigationDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        textView = (TextView) findViewById(R.id.textView);
+                        switch (menuItem.getItemId()) {
+                            case R.id.item_navigation_drawer_inbox:
+                                menuItem.setChecked(true);
+                                textView.setText(menuItem.getTitle());
+                                intent = new Intent(MainActivity.this, Caminar.class);
+                                startActivity(intent);
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                return true;
+                            case R.id.item_navigation_drawer_starred:
+                                menuItem.setChecked(true);
+                                textView.setText(menuItem.getTitle());
+                                intent = new Intent(MainActivity.this, Correr.class);
+                                startActivity(intent);
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                return true;
+                            case R.id.item_navigation_drawer_sent_mail:
+                                menuItem.setChecked(true);
+                                textView.setText(menuItem.getTitle());
+                                intent = new Intent(MainActivity.this, Bicicleta.class);
+                                startActivity(intent);
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                return true;
+                            case R.id.item_navigation_drawer_settings:
+                                menuItem.setChecked(true);
+                                textView.setText(menuItem.getTitle());
+                                Toast.makeText(MainActivity.this, "Launching " + menuItem.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                                startActivity(intent);
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                return true;
+                            case R.id.item_navigation_drawer_help_and_feedback:
+                                menuItem.setChecked(true);
+                                Toast.makeText(MainActivity.this, menuItem.getTitle().toString(), Toast.LENGTH_SHORT).show();
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                return true;
+                        }
+                        return true;
+                    }
+                });
     }
-
-    private void displayView(int position) {
-        switch (position) {
-            case 0:
-                intent = new Intent(this, Caminar.class);
-                startActivity(intent);
-                finish();
-                break;
-            case 1:
-                intent = new Intent(this, Correr.class);
-                startActivity(intent);
-                finish();
-                break;
-            case 2:
-                intent = new Intent(this, Bicicleta.class);
-                startActivity(intent);
-                finish();
-                break;
-        }
-    }
-
 }

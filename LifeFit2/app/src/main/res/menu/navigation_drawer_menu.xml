@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checked="true"
+            android:id="@+id/item_navigation_drawer_inbox"
+            android:icon="@drawable/walking"
+            android:title="Caminar" />
+        <item
+            android:id="@+id/item_navigation_drawer_starred"
+            android:icon="@drawable/running"
+            android:title="Correr" />
+        <item
+            android:id="@+id/item_navigation_drawer_sent_mail"
+            android:icon="@drawable/cycling"
+            android:title="Bicicleta" />
+        <item
+            android:id="@+id/item_navigation_drawer_settings"
+            android:icon="@drawable/ic_action_action_settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/item_navigation_drawer_help_and_feedback"
+            android:icon="@drawable/ic_action_action_help"
+            android:title="Help and feedback" />
+
+    </group>
+
+</menu>
