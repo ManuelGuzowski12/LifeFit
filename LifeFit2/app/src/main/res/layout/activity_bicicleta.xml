@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -18,12 +18,38 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ToolbarTheme" />
 
-    <TextView
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Bicicleta"
-        android:textColor="@color/md_text" />
+        android:text="INICIAR"
+        android:id="@+id/start_bicicleta"
+        android:layout_marginTop="106dp"
+        android:background="@color/md_light_green_700"
+        android:layout_below="@+id/toolbar"
+        android:layout_toLeftOf="@+id/chronometer_bicicleta"
+        android:layout_toStartOf="@+id/chronometer_bicicleta"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DETENER"
+        android:id="@+id/stop_bicicleta"
+        android:background="@color/md_red_700"
+        android:layout_alignTop="@+id/start_bicicleta"
+        android:layout_toRightOf="@+id/chronometer_bicicleta"
+        android:layout_toEndOf="@+id/chronometer_bicicleta"
+        android:textStyle="bold" />
+
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chronometer_bicicleta"
+        android:textSize="50dp"
+        android:textColor="@color/md_deep_orange_700"
+        android:layout_above="@+id/stop_bicicleta"
+        android:layout_centerHorizontal="true" />
+
+
+
+</RelativeLayout>

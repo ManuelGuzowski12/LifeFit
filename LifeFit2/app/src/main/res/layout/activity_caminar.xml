@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -17,13 +17,37 @@
         android:elevation="4dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ToolbarTheme" />
-
-    <TextView
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Caminar"
-        android:textColor="@color/md_text" />
+        android:text="INICIAR"
+        android:id="@+id/start_caminar"
+        android:layout_marginTop="106dp"
+        android:background="@color/md_light_green_700"
+        android:layout_below="@+id/toolbar"
+        android:layout_toLeftOf="@+id/chronometer_caminar"
+        android:layout_toStartOf="@+id/chronometer_caminar"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DETENER"
+        android:id="@+id/stop_caminar"
+        android:background="@color/md_red_700"
+        android:layout_alignTop="@+id/start_caminar"
+        android:layout_toRightOf="@+id/chronometer_caminar"
+        android:layout_toEndOf="@+id/chronometer_caminar"
+        android:textStyle="bold" />
+
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chronometer_caminar"
+        android:textSize="50dp"
+        android:textColor="@color/md_deep_orange_700"
+        android:layout_above="@+id/stop_caminar"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
