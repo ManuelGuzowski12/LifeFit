@@ -21,7 +21,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INICIAR"
+        android:text="INICIA"
         android:id="@+id/start_bicicleta"
         android:layout_marginTop="106dp"
         android:background="@color/md_light_green_700"
